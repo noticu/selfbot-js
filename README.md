@@ -4,6 +4,5 @@ este es un selfbot para discord que te permite tener varios comandos en tu misma
 
 ```bash
 mv ./config.example.json ./config.json
-rm config.example.json
 vi config.json
 ```
