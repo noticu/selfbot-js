@@ -1,0 +1,17 @@
+{
+    "token": "",
+    "prefix": "",
+    "webhook_id": "",
+    "webhook_token": "",
+    "rpcEnabled": false,
+    "rpc": {
+      "id": "",
+      "name": "",
+      "desc": "",
+      "img_url": "",
+      "button_text": "",
+      "button_url": "", 
+      "url": ""
+    } 
+  }
+  
