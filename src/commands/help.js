@@ -16,7 +16,7 @@ module.exports = {
       const cog = require(filePath);
 
       if ('name' in cog && 'description' in cog) {
-        helpText += `nombre: ${cog.name}\ndescripcion: ${cog.description}\n\n`;
+        helpText += `nombre: ${cog.name}\ndescripcion: ${cog.description}\n`;
       }
     }
     helpText += `\`\`\``;

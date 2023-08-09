@@ -7,7 +7,7 @@ try {
 
 module.exports = {
   token: cfg["token"],
-  prefix: cfg["prefix"],
+  prefix: cfg["prefix"] || ',',
   webhookID: cfg["webhook_id"],
   webhookToken: cfg["webhook_token"],
   rpcEnabled: cfg["rpcEnabled"],
