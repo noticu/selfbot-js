@@ -1,12 +1,13 @@
 const { setTimeout } = require("timers/promises");
-
 module.exports = {
   name: "info",
   description: "muestra informacion sobre un usuario",
   async execute(msg, args) {
     const animation = ["|", "/", "-", "\\"]
     const user = msg.mentions.users.first();
+    let mutualFriends;
 
+    await user.mutualFriends.then((friends) => mutualFriends = friends.size)
     if (isNaN(user)) {
       await msg.edit("no haz proporcionado un usuario");
       await setTimeout(3000);
@@ -14,17 +15,14 @@ module.exports = {
       return;
     }
 
-    user.fetch();
     const text = `
-
-${user} doxing 
+${user} info 
 \`\`\`
-
-id -> ${user.id}
-fecha de creacion -> ${user.createdAt}
-bio -> ${user.bio}
-avatar -> ${user.displayAvatarURL()}
-bot? -> ${user.bot ? "si" : "no"}
+id ->                ${user.id}
+creacion ->          ${user.createdAt}
+avatar ->            ${user.avatarURL({format: "jpg", size: 4096})}
+bot ->               ${user.bot ? "si" : "no"}
+mutual friends ->    ${mutualFriends}
 \`\`\`
 `
 

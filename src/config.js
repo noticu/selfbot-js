@@ -8,8 +8,6 @@ try {
 module.exports = {
   token: cfg["token"],
   prefix: cfg["prefix"] || ',',
-  webhookID: cfg["webhook_id"],
-  webhookToken: cfg["webhook_token"],
   rpcEnabled: cfg["rpcEnabled"],
   rpcID: cfg["rpc"]["id"],
   rpcName: cfg["rpc"]["name"],

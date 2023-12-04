@@ -2,7 +2,7 @@ const { setTimeout } = require("timers/promises");
 
 module.exports = {
   name: 'gping',
-  description: "ghostpinguea a alguien",
+  description: "ghostpinguea a alguien, en los canales disponibles del server",
   async execute(msg, args)  {
     const user = msg.mentions.users.first();
     if(isNaN(user)) {
@@ -15,7 +15,7 @@ module.exports = {
       await setTimeout(100);
 
       if (ch.isText() && ch.permissionsFor(msg.guild.members.me).has('SEND_MESSAGES')){ 
-        await ch.send(`gay ${user}`).then(async (msgf) => {
+        await ch.send(`${user}`).then(async (msgf) => {
           await msgf.delete();
         }).catch((err) => {
           console.log(`[!] - error al enviar el mensaje a ${ch.name}`);

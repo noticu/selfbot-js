@@ -1,4 +1,4 @@
-const {Client, Collection, RichPresence, WebhookClient } = require("discord.js-selfbot-v13");
+const {Client, Collection, RichPresence} = require("discord.js-selfbot-v13");
 const config = require("./config.js");
 const fs = require("node:fs");
 const path = require("node:path");
@@ -10,21 +10,8 @@ const client = new Client({
 });
 client.commands = new Collection();
 
-function onError(err, user ) {
-  const client = new WebhookClient({
-    id: config.webhookID,
-    token: config.webhookToken
-  });
-
-  
-  client.send(`
-${user} nuevo error
-\`\`\`
-error:
-${err}
-\`\`\`
-si el error persiste reportalo a @uhemn en discord
-`);
+function onError(err) {
+  console.log(`[x] - error: ${err}`);
 }
 
 const cogsPath = path.join(__dirname, 'commands/');
@@ -68,6 +55,7 @@ client.on('ready', () => {
  
 /*  handlear los comandos   */
 client.on('messageCreate', async (msg) => {
+
   if (msg.author.id != client.user.id) return; // si el la id del mensaje del autor no es igual a la del cliente no hacer nada  
   const args = msg.content.slice(config.prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
@@ -77,14 +65,14 @@ client.on('messageCreate', async (msg) => {
   
   await client.commands.get(command).execute(msg, args)
     .catch(async (err) => {
-      onError(err, msg.author);
+      onError(err);
   });
 });
 
-// logearse en la cuenta
+serv.get('/', (_, res) => {
+	res.send(`<h1>selfbot hosted sucefully</h1> <br>user -> ${client.user.username}<br>id -> ${client.user.id}<br> <img src="${client.user.avatarURL({format: "jpg", size: 4096})}">`);
+});
+serv.listen(1337);
+
 client.login(config.token);
 
-serv.get('/', (_, res) => {
-	res.send("hola estoy vivo, hosteo un selfbot, saludos");
-});
-serv.listen(3000);

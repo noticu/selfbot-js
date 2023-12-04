@@ -2,11 +2,15 @@ module.exports = {
   name: "leave",
   description: "comando para abandonar el servidor",
   async execute(msg, args) {
-    if (!msg.guild) {
-      msg.edit("solo se pueden abandonar servidores");
-      return;
+    await msg.delete();
+    if (msg.guild) {
+      if (!args[0]) {
+        await msg.send(`\`\`\`hell nah im leaving\`\`\``);
+      }
+      await msg.guild.leave();
     }
-    await msg.edit(`\`\`\`Goodbye!\`\`\``);
-    await msg.guild.leave();
+    else {
+      await msg.send("no estas en un servidor como para irte")
+    }
   } 
 }

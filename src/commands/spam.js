@@ -11,6 +11,7 @@ module.exports = {
     text += " " + args[i];
       i++;
     }
+    text = text.slice(1);
 
     if (text == null || isNaN(amount)) {
       await msg.edit("falta algun argumento para el comando");

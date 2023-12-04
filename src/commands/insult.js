@@ -1,10 +1,10 @@
 const axios = require('axios');
 
-const api = "https://evilinsult.com/generate_insult.php?lang=en";
+let api = "https://evilinsult.com/generate_insult.php?lang=";
 
-async function getInsult() {
+async function getInsult(lang) {
   let insult;
-  await axios.get(api).then((res) => {
+  await axios.get(api+lang).then((res) => {
     insult = res.data;
   });
   return insult;
@@ -14,16 +14,22 @@ module.exports = {
   name: "insult",
   description: "genera un insulto hacia un usuario", 
   async execute(msg, args) {
+    let lang = args[0];
     const user = msg.mentions.users.first();
 
     let message = '';
+
+    if (!lang || lang.startsWith("<@")) {
+      lang = "en";
+    }
+
     if (user) {
       message += `${user} `;
     }
-    await getInsult().then((insult) => {
+    await getInsult(lang).then((insult) => {
       message += insult;
     });
-    
+     
     msg.edit(message);
   }
 }
