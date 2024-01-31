@@ -1,8 +1,6 @@
 {
     "token": "",
     "prefix": "",
-    "webhook_id": "",
-    "webhook_token": "",
     "rpcEnabled": false,
     "rpc": {
       "id": "",
