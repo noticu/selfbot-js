@@ -57,8 +57,11 @@ client.on('ready', () => {
 client.on('messageCreate', async (msg) => {
 
   if (msg.author.id != client.user.id) return; // si el la id del mensaje del autor no es igual a la del cliente no hacer nada  
+
+  if (!msg.content.startsWith(config.prefix)) return;
+
   const args = msg.content.slice(config.prefix.length).trim().split(/ +/);
-	const command = args.shift().toLowerCase();
+  const command = args.shift().toLowerCase();
 
   if (!client.commands.has(command)) return;
 

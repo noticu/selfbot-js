@@ -2,7 +2,7 @@ let cfg;
 try {
   cfg = require("../config.json");
 } catch(err) {
-  console.log("[!] - ERROR archivo de confiracion no encontrado")
+  console.log("[!] - ERROR archivo de configuracion no encontrado")
 }
 
 module.exports = {

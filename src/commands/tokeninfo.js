@@ -3,6 +3,7 @@ const { setTimeout } = require("timers/promises");
 module.exports = {
   name: "tinfo",
   description: "conseguir informacion sobre una token",
+  usage: "tinfo <token>",
   async execute(msg, args) {
     const token = args[0];
     const headers = {

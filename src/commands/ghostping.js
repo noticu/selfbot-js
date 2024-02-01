@@ -3,6 +3,7 @@ const { setTimeout } = require("timers/promises");
 module.exports = {
   name: 'gping',
   description: "ghostpinguea a alguien, en los canales disponibles del server",
+  usage: "gping <user mention>",
   async execute(msg, args)  {
     const user = msg.mentions.users.first();
     if(isNaN(user)) {

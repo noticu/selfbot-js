@@ -8,6 +8,7 @@ function convert(input) {
 module.exports = {
   name: 'shellcode',
   description: "convierte un string a caracteres de escape en hexadecimal",
+  usage: "shellcode <texto>",
   async execute(msg, args)  {
     let string = "";
     let i = 0;

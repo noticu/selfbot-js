@@ -1,6 +1,7 @@
 module.exports = {
   name: "purge",
   description: "comando para purgear mensajes",
+  usage: "purge <message quantity>",
   async execute(msg, args) {
     await msg.delete()
     const amount = parseInt(args[0]); 

@@ -4,6 +4,7 @@ const path   = require("node:path");
 module.exports = {
   name: "qr",
   description: "convierte un texto a un qr",
+  usage: "qr <text>",
   async execute(msg, args) {
     let message = "";
     let i = 0;

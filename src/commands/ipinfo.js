@@ -6,6 +6,7 @@ const ip_api = "http://ip-api.com/json/";
 module.exports = {
   name: 'ipinfo',
   description: 'sacar informacion de una ip',
+  usage: "ipinfo <ip>",
   async execute(msg, args) {
     const ip = args[0];
     let ipInfo;

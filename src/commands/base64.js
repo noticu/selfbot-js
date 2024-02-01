@@ -7,6 +7,7 @@ function base64(input) {
 module.exports = {
   name: "base64",
   description: "encodea un texto a base64", 
+  usage: "base64 <texto>",
   async execute(msg, args) {
     let text = '';
     let i = 0;

@@ -13,6 +13,7 @@ async function getInsult(lang) {
 module.exports = {
   name: "insult",
   description: "genera un insulto hacia un usuario", 
+  usage: "insult <lang example: es> <optional user mention>",
   async execute(msg, args) {
     let lang = args[0];
     const user = msg.mentions.users.first();

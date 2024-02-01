@@ -3,6 +3,7 @@ const { setTimeout } = require("timers/promises");
 module.exports = {
   name: "spam",
   description: "spamea un texto cierta cantidad de veces",
+  usage: "spam <message quantity> <text>",
   async execute(msg, args) {
     let text = "";
     let i = 1;
